@@ -6,7 +6,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Student.hbm.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Student.hbm.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="NHibernate" Version="5.3.1" />
+    <PackageReference Include="Npgsql" Version="4.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Npgsql">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\PostgreSQL\Npgsql\bin\net451\Npgsql.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
