@@ -19,6 +19,8 @@ namespace NHibernateDemoApp
                 x.Dialect<PostgreSQLDialect>();
             });
 
+            config.AddAssembly(Assembly.GetExecutingAssembly());
+
             var sessionFactory = config.BuildSessionFactory();
 
             using (var session = sessionFactory.OpenSession())
@@ -28,14 +30,14 @@ namespace NHibernateDemoApp
                     var student1 = new Student
                     {
                         ID = 1,
-                        FirstMidName = "Allan",
+                        FirstName = "Allan",
                         LastName = "Boomer",
                     };
 
                     var student2 = new Student
                     {
                         ID = 2,
-                        FirstMidName = "Jerry",
+                        FirstName = "Jerry",
                         LastName = "Lewis"
                     };
                     session.Save(student1);
@@ -43,9 +45,6 @@ namespace NHibernateDemoApp
                     transaction.Commit();
                 }
             }
-
-            config.AddAssembly(Assembly.GetExecutingAssembly());
-
 
             Console.ReadLine();
         }
