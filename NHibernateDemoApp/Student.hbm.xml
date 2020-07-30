@@ -2,12 +2,16 @@
 <hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
    assembly = "NHibernateDemoApp" namespace = "NHibernateDemoApp">
 
-	<class name = "Student">
-		<id name = "ID">
-			<generator class = "native"/>
+	<class name ="Student" table="students">
+		<id name ="ID">
+			<column name="id"></column>
 		</id>
-		<property name = "LastName"/>
-		<property name = "FirstName"/>
+		<property name="LastName">
+			<column name="last_name"></column>
+		</property>
+		<property name="FirstName">
+			<column name="first_name"></column>
+		</property>
 	</class>
 
 </hibernate-mapping>
