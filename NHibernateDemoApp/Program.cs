@@ -49,6 +49,24 @@ namespace NHibernateDemoApp
                         Console.WriteLine("{0} \t{1} \t{2}", student.ID, student.FirstName, student.LastName);
                     }
 
+                    //var stdnt = session.Get<Student>(1);
+                    //Console.WriteLine("Retrieved by ID");
+                    //Console.WriteLine("{0} \t{1} \t{2}", stdnt.ID, stdnt.FirstName, stdnt.LastName);
+
+                    var stdnt = session.Get<Student>(1);
+                    Console.WriteLine("Retrieved by ID");
+                    Console.WriteLine("{0} \t{1} \t{2}", stdnt.ID, stdnt.FirstName, stdnt.LastName);
+
+                    Console.WriteLine("Update the last name of ID = {0}", stdnt.ID);
+                    stdnt.LastName = "Donald";
+                    session.Update(stdnt);
+                    Console.WriteLine("\nFetch the complete list again\n");
+
+                    foreach (var student in students)
+                    {
+                        Console.WriteLine("{0} \t{1} \t{2}", student.ID, student.FirstName, student.LastName);
+                    }
+
                     transaction.Commit();
                 }
             }
